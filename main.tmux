@@ -3,10 +3,10 @@
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck disable=1090
-source "${CURRENT_DIR}/scripts/helpers.sh"
+source "${CURRENT_DIR}/scripts/tmux-core.sh"
 
 # shellcheck disable=1090
-world_clock_status="#(${CURRENT_DIR}/scripts/clock.sh)"
+world_clock_status="#(${CURRENT_DIR}/scripts/tmux-clock.sh)"
 world_clock_status_pattern="\#{world_clock_status}"
 
 tmux_interpolate() {

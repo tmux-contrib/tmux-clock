@@ -3,7 +3,7 @@
 CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # shellcheck disable=1090
-source "${CURRENT_DIR}/helpers.sh"
+source "${CURRENT_DIR}/tmux-core.sh"
 
 main() {
 	local opt_tz

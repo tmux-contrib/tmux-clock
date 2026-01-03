@@ -22,10 +22,10 @@
 # Dependencies:
 #   - date: system command for time formatting
 
-CURRENT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_tmux_clock_source_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=scripts/core.sh
-source "${CURRENT_DIR}/core.sh"
+# shellcheck source=tmux_clock_core.sh
+source "$_tmux_clock_source_dir/tmux_clock_core.sh"
 
 # Main entry point for the world clock script.
 #

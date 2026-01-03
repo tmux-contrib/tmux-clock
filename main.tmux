@@ -17,12 +17,12 @@
 #   @world_clock_fgcolor - Foreground color (default: "default")
 #   @world_clock_bgcolor - Background color (default: "default")
 
-_tmux_clock_root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_tmux_root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# shellcheck source=scripts/tmux_clock_core.sh
-source "$_tmux_clock_root_dir/scripts/tmux_clock_core.sh"
+# shellcheck source=scripts/tmux_core.sh
+source "$_tmux_root_dir/scripts/tmux_core.sh"
 
-world_clock_status="#($_tmux_clock_root_dir/scripts/tmux_clock.sh)"
+world_clock_status="#($_tmux_root_dir/scripts/tmux_clock.sh)"
 world_clock_status_pattern="\#{world_clock_status}"
 
 # Interpolate the world clock status pattern in content.

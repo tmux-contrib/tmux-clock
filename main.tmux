@@ -39,7 +39,7 @@ world_clock_status_pattern="\#{world_clock_status}"
 #   The content with pattern replaced by tmux command string
 # Returns:
 #   0 on success
-tmux_interpolate() {
+_tmux_interpolate() {
 	local content=$1
 
 	content=${content/$world_clock_status_pattern/$world_clock_status}
@@ -59,14 +59,14 @@ tmux_interpolate() {
 #   $1 - The name of the tmux option to update (e.g., "status-right")
 # Returns:
 #   0 on success
-tmux_update_option() {
+_tmux_update_option() {
 	local option="$1"
 	local option_value
 
-	option_value="$(tmux_get_option "$option")"
-	option_value="$(tmux_interpolate "$option_value")"
+	option_value="$(_tmux_get_option "$option")"
+	option_value="$(_tmux_interpolate "$option_value")"
 
-	tmux_set_option "$option" "$option_value"
+	_tmux_set_option "$option" "$option_value"
 }
 
 # Main entry point for the plugin.
@@ -81,8 +81,8 @@ tmux_update_option() {
 # Returns:
 #   0 on success
 main() {
-	tmux_update_option "status-right"
-	tmux_update_option "status-left"
+	_tmux_update_option "status-right"
+	_tmux_update_option "status-left"
 }
 
 main

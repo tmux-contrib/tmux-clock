@@ -46,10 +46,10 @@ main() {
 	local opt_fgcolor
 	local opt_bgcolor
 
-	opt_tz="$(tmux_get_option "@world_clock_tz" "US/Eastern")"
-	opt_fmt="$(tmux_get_option "@world_clock_fmt" "#[bold]%Z#[nobold]: %H:%M")"
-	opt_fgcolor="$(tmux_get_option "@world_clock_fgcolor" "default")"
-	opt_bgcolor="$(tmux_get_option "@world_clock_bgcolor" "default")"
+	opt_tz="$(_tmux_get_option "@world_clock_tz" "US/Eastern")"
+	opt_fmt="$(_tmux_get_option "@world_clock_fmt" "#[bold]%Z#[nobold]: %H:%M")"
+	opt_fgcolor="$(_tmux_get_option "@world_clock_fgcolor" "default")"
+	opt_bgcolor="$(_tmux_get_option "@world_clock_bgcolor" "default")"
 
 	export TZ=$opt_tz
 

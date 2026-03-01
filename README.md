@@ -1,6 +1,6 @@
 # tmux-clock
 
-A tmux plugin that displays the time for a configurable timezone (world clock).
+Display a world clock with any timezone in your tmux status bar.
 
 ## Installation
 

@@ -1,45 +1,22 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# Get the current time for a specific timezone.
-#
-# Displays the current time formatted according to the configured timezone
-# and format string. Supports custom foreground and background colors.
-#
-# Configuration Options:
-#   @world_clock_tz      - Timezone (default: "US/Eastern")
-#   @world_clock_fmt     - Time format string (default: "#[bold]%Z#[nobold]: %H:%M")
-#   @world_clock_fgcolor - Foreground color (default: "default")
-#   @world_clock_bgcolor - Background color (default: "default")
-#
-# Globals:
-#   TZ - Temporarily set to the configured timezone
-# Arguments:
-#   None
-# Outputs:
-#   Formatted time string with tmux styling to stdout
-# Returns:
-#   0 on success
-# Dependencies:
-#   - date: system command for time formatting
+[[ -z "${DEBUG:-}" ]] || set -x
 
-_tmux_source_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+_tmux_clock_source_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+[[ -f "$_tmux_clock_source_dir/tmux_core.sh" ]] || {
+	echo "tmux-clock: missing tmux_core.sh" >&2
+	exit 1
+}
 
 # shellcheck source=tmux_core.sh
-source "$_tmux_source_dir/tmux_core.sh"
+source "$_tmux_clock_source_dir/tmux_core.sh"
 
-# Main entry point for the world clock script.
+# Main entry point for the world clock script
 #
 # Reads configuration options and outputs the formatted time for the
 # specified timezone with tmux color styling.
-#
-# Globals:
-#   TZ - Set to the configured timezone
-# Arguments:
-#   None
-# Outputs:
-#   Formatted time string (e.g., "#[fg='default',bg='default']EST: 14:30")
-# Returns:
-#   0 on success
 main() {
 	local opt_tz
 	local opt_fmt

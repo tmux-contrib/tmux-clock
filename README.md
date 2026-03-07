@@ -14,10 +14,10 @@ And install it by running `<prefix> + I`.
 
 ## Usage
 
-Add the `#{world_clock_status}` format string to your status bar:
+Add the `#{clock}` format string to your status bar:
 
 ```tmux
-set -g status-right "#{world_clock_status}"
+set -g status-right "#{clock}"
 ```
 
 ## Configuration
@@ -26,26 +26,26 @@ Add these options to your `~/.tmux.conf`:
 
 ```tmux
 # Timezone to display (default: US/Eastern)
-set -g @world_clock_tz "Europe/London"
+set -g @clock-tz "Europe/London"
 
 # Time format string (default: #[bold]%Z#[nobold]: %H:%M)
-set -g @world_clock_fmt "#[bold]%Z#[nobold]: %H:%M"
+set -g @clock-fmt "#[bold]%Z#[nobold]: %H:%M"
 
 # Foreground color (default: default)
-set -g @world_clock_fgcolor "yellow"
+set -g @clock-fg-color "yellow"
 
 # Background color (default: default)
-set -g @world_clock_bgcolor "default"
+set -g @clock-bg-color "default"
 ```
 
 ### Options
 
-| Option                 | Default                        | Description        |
-|------------------------|--------------------------------|--------------------|
-| `@world_clock_tz`      | `"US/Eastern"`                 | Timezone to display |
-| `@world_clock_fmt`     | `#[bold]%Z#[nobold]: %H:%M`   | Time format string |
-| `@world_clock_fgcolor` | `"default"`                    | Foreground color   |
-| `@world_clock_bgcolor` | `"default"`                    | Background color   |
+| Option           | Default                        | Description         |
+|------------------|--------------------------------|---------------------|
+| `@clock-tz`      | `"US/Eastern"`                 | Timezone to display |
+| `@clock-fmt`     | `#[bold]%Z#[nobold]: %H:%M`   | Time format string  |
+| `@clock-fg-color`| `"default"`                    | Foreground color    |
+| `@clock-bg-color`| `"default"`                    | Background color    |
 
 ### Common Timezones
 

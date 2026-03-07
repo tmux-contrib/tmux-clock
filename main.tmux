@@ -5,20 +5,20 @@ set -euo pipefail
 
 # tmux-clock plugin entry point.
 #
-# This plugin provides a #{world_clock_status} format string that displays
+# This plugin provides a #{clock} format string that displays
 # the current time for a configurable timezone in the tmux status bar.
 #
 # Usage:
-#   Add #{world_clock_status} to your status-left or status-right option.
+#   Add #{clock} to your status-left or status-right option.
 #
 # Example:
-#   set -g status-right "#{world_clock_status} | %H:%M"
+#   set -g status-right "#{clock} | %H:%M"
 #
 # Configuration:
-#   @world_clock_tz      - Timezone (default: "US/Eastern")
-#   @world_clock_fmt     - Time format (default: "#[bold]%Z#[nobold]: %H:%M")
-#   @world_clock_fgcolor - Foreground color (default: "default")
-#   @world_clock_bgcolor - Background color (default: "default")
+#   @clock-tz       - Timezone (default: "US/Eastern")
+#   @clock-fmt      - Time format (default: "#[bold]%Z#[nobold]: %H:%M")
+#   @clock-fg-color - Foreground color (default: "default")
+#   @clock-bg-color - Background color (default: "default")
 
 _tmux_clock_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
@@ -30,10 +30,10 @@ _tmux_clock_root="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # shellcheck source=scripts/tmux_core.sh
 source "$_tmux_clock_root/scripts/tmux_core.sh"
 
-world_clock_status="#($_tmux_clock_root/scripts/tmux_clock.sh)"
-world_clock_status_pattern="\#{world_clock_status}"
+clock_status="#($_tmux_clock_root/scripts/tmux_clock.sh)"
+clock_status_pattern="\#{clock}"
 
-# Interpolate the world clock status pattern in content
+# Interpolate the clock status pattern in content
 #
 # Arguments:
 #   $1 - The content string containing the pattern
@@ -42,7 +42,7 @@ world_clock_status_pattern="\#{world_clock_status}"
 _tmux_interpolate() {
 	local content=$1
 
-	content=${content/$world_clock_status_pattern/$world_clock_status}
+	content=${content/$clock_status_pattern/$clock_status}
 
 	echo "$content"
 }

@@ -1,6 +1,6 @@
 # tmux-clock
 
-[![Test](https://github.com/tmux-contrib/tmux-clock/actions/workflows/test.yml/badge.svg)](https://github.com/tmux-contrib/tmux-clock/actions/workflows/test.yml) [![Release](https://img.shields.io/github/v/release/tmux-contrib/tmux-clock)](https://github.com/tmux-contrib/tmux-clock/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Test](https://github.com/tmux-contrib/tmux-clock/actions/workflows/test.yml/badge.svg)](https://github.com/tmux-contrib/tmux-clock/actions/workflows/test.yml) [![Release](https://img.shields.io/github/v/release/tmux-contrib/tmux-clock)](https://github.com/tmux-contrib/tmux-clock/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Display a world clock with any timezone in your tmux status bar.
 

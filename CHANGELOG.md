@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/tmux-contrib/tmux-clock/compare/v0.2.2...v0.2.3) (2026-11-07)
+
+
+### Bug Fixes
+
+* **ci:** merge with the App token so main gets its CI run ([#35](https://github.com/tmux-contrib/tmux-clock/issues/35)) ([988299c](https://github.com/tmux-contrib/tmux-clock/commit/988299c15198117c16b7011443001fa904e2fa57))
+
 ## [0.2.2](https://github.com/tmux-contrib/tmux-clock/compare/v0.2.1...v0.2.2) (2026-05-04)
 
 
